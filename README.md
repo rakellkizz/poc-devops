@@ -76,3 +76,14 @@ http://localhost:8000/health
 ☁️ Arquitetura Cloud (AWS / Azure / GCP)
 
 📊 Diagramas e decisões arquiteturais
+
+ ## ☁️ POC 4 — Arquitetura Cloud (documentação) 
+
+A arquitetura alvo para produção (Cloud) está documentada em:
+
+- `architecture/overview.md` — visão geral e diagrama
+- `architecture/cloud.md` — equivalência AWS/Azure/GCP
+- `architecture/scaling.md` — escala, probes, rolling updates
+- `architecture/costs.md` — custos e bom senso
+- `architecture/security.md` — segurança mínima bem feita
+
