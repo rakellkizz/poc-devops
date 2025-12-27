@@ -1,0 +1,30 @@
+# ==========================================================
+# Service — POC DevOps / SRE
+# ----------------------------------------------------------
+# Responsável por:
+# - Expor a aplicação
+# - Balancear carga entre os Pods
+# - Criar ponto único de acesso
+# ==========================================================
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: poc-devops-service
+
+spec:
+  # Tipo de serviço
+  # NodePort permite acesso externo em ambiente local
+  type: NodePort
+
+  # Seleciona os Pods pelo label
+  selector:
+    app: poc-devops
+
+  # Mapeamento de portas
+  ports:
+    - protocol: TCP
+      port: 80          # Porta do Service
+      targetPort: 8000  # Porta do container
+      nodePort: 30007   # Porta externa no node

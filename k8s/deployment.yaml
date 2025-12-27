@@ -1,0 +1,64 @@
+# ==========================================================
+# Deployment — POC DevOps / SRE
+# ----------------------------------------------------------
+# Responsável por:
+# - Criar e manter os Pods
+# - Garantir alta disponibilidade
+# - Gerenciar atualizações
+# ==========================================================
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: poc-devops-deployment
+  labels:
+    app: poc-devops
+
+spec:
+  # Quantidade de réplicas (pods)
+  replicas: 2
+
+  # Como o Kubernetes identifica quais pods pertencem a esse deployment
+  selector:
+    matchLabels:
+      app: poc-devops
+
+  # Template do Pod (modelo)
+  template:
+    metadata:
+      labels:
+        app: poc-devops
+
+    spec:
+      containers:
+        - name: poc-devops-container
+
+          # Imagem criada no Docker
+          image: poc-devops:latest
+
+          # Porta interna do container
+          ports:
+            - containerPort: 8000
+
+          # Variáveis de ambiente
+          env:
+            - name: ENV
+              value: "kubernetes"
+
+          # Prova de mentalidade SRE 👇
+          # Liveness Probe → reinicia se travar
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+          # Readiness Probe → só recebe tráfego se estiver pronto
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
