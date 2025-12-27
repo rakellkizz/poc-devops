@@ -87,3 +87,15 @@ A arquitetura alvo para produção (Cloud) está documentada em:
 - `architecture/costs.md` — custos e bom senso
 - `architecture/security.md` — segurança mínima bem feita
 
+---
+
+## 📄 Licença e uso
+
+Este projeto é disponibilizado sob a **Apache License 2.0**.
+
+✔ Uso permitido para estudo e referência  
+✔ Fork permitido com atribuição  
+❌ Uso comercial ou redistribuição sem autorização não é permitido  
+❌ Remoção de autoria não é permitida  
+
+© 2025 Raquel Souza. Todos os direitos reservados.
