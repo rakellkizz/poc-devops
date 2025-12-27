@@ -37,6 +37,9 @@ spec:
           # Imagem criada no Docker
           image: poc-devops:latest
 
+          # Política de pull da imagem
+          imagePullPolicy: IfNotPresent
+
           # Porta interna do container
           ports:
             - containerPort: 8000
